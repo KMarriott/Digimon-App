@@ -21,7 +21,7 @@ class Home extends Component {
 
   state = {
     user: null,
-    logged_in: false,
+    logged_in: true,
     page: "Home"
   };
 
@@ -86,15 +86,25 @@ class Home extends Component {
       <RaisedButton label="Profile" onTouchTap={() =>{this.handle_click("Profile")}}/>
       <RaisedButton label="Shop" onTouchTap={() =>{this.handle_click("Shop")}}/>
       <RaisedButton label="Messages" onTouchTap={() =>{this.handle_click("Messages")}}/>
-      
+
     {  //<RaisedButton label="Explore" onTouchTap={() =>{this.handle_click("Explore")}}/>
     }
       <RaisedButton label="Admin" onTouchTap={() =>{this.handle_click("Admin")}}/>
       <Features/>
+      {this.state.logged_in ?
+        <div>
+        <RaisedButton
+        label= "Sign Out"
+        onTouchTap={this.handleSignOut}/>
+        </div>
+        :
+        <SignInButton
+        user= {this.state.user}
+        handleSignIn={this.handleSignIn}/>
+      }
 
       </div>
 {
-  // =============================================== Front page not logged in ===================================================
       <div style={{display: 'flex',
       'flexDirection': 'row',
       'justifyContent': 'center'}}>
@@ -115,50 +125,32 @@ class Home extends Component {
         'flexDirection': 'column',
         margin: '10%'}}>
 
-{
+        {!this.state.logged_in ? <div>
 
-//{// Not Logged In}
 
-//           <div>
-//
-//
-//         <div style={{display: 'flex',
-//         'flexDirection': 'row',
-//         'justifyContent': 'center'}}>
-//         <img src="https://wikimon.net/images/2/28/Agumon_vpet_dv.gif"/>
-//         <img src="https://wikimon.net/images/7/75/Gabumon_vpet_dv.gif"/>
-//         <img src="https://wikimon.net/images/c/c7/Betamon_vpet_d3.gif"/>
-//         </div>
-//
-//         <div>A place to raise your own Digimon. </div>
-//         <div>Coming Soon! </div>
-//
-//
-//         <Signup/>
-//         <br/>
-//         {this.state.logged_in ?
-//           <div>
-//           <RaisedButton
-//           label= "Sign Out"
-//           onTouchTap={this.handleSignOut}/>
-//           </div>
-//           :
-//           <SignInButton
-//           user= {this.state.user}
-//           handleSignIn={this.handleSignIn}/>
-//         }
-//
-//
-//         </div>
+        <div style={{display: 'flex',
+        'flexDirection': 'row',
+        'justifyContent': 'center'}}>
+        <img src="https://wikimon.net/images/2/28/Agumon_vpet_dv.gif"/>
+        <img src="https://wikimon.net/images/7/75/Gabumon_vpet_dv.gif"/>
+        <img src="https://wikimon.net/images/c/c7/Betamon_vpet_d3.gif"/>
+        </div>
+
+        <div>A place to raise your own Digimon. </div>
+        <div>Coming Soon! </div>
+
+
+        <Signup/>
+
+
+
+        </div> : ""
       }
 
-      {
-        //Logged in
 
-        <Logged_in page={this.state.page}/>
+        {this.state.logged_in ? <Logged_in page={this.state.page}/> : ""}
 
 
-      }
 
 
         </div>
