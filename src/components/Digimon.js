@@ -22,6 +22,7 @@ class Digimon extends Component {
       <div>Stage</div>
       <div>Love</div>
       <div>Hunger</div>
+
       <div>Weight</div>
       <div>Attack</div>
       <div>Defense</div>

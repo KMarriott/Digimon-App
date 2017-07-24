@@ -60,7 +60,7 @@ class Features extends Component {
     <br/>Other Names:
     <br/>Digital Ward
     <br/>Digital Demesne
-    <br/> Digimon Dimensions
+    <br/> Digimon Dimension
 
 
     </div>

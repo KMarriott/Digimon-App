@@ -21,8 +21,15 @@ class Home extends Component {
 
   state = {
     user: null,
-    logged_in: false
+    logged_in: false,
+    page: "Home"
   };
+
+  handle_click = (page) => {
+    this.setState(
+      {page: page}
+    )
+  }
 
   handle_log_in = () => {
     this.setState(
@@ -75,10 +82,14 @@ class Home extends Component {
       <div className="App-header">
       <img src="http://orig00.deviantart.net/1b37/f/2011/060/7/8/crest_of_courage_base_by_alijameel-d3aozba.png"  className="App-logo" alt="logo" />
       <h2>Digital Domain</h2>
-      <RaisedButton label="Home"/>
-      <RaisedButton label="Profile"/>
-      <RaisedButton label="Shop"/>
-      <RaisedButton label="Explore"/>
+      <RaisedButton label="Home" onTouchTap={() =>{this.handle_click("Home")}}/>
+      <RaisedButton label="Profile" onTouchTap={() =>{this.handle_click("Profile")}}/>
+      <RaisedButton label="Shop" onTouchTap={() =>{this.handle_click("Shop")}}/>
+      <RaisedButton label="Messages" onTouchTap={() =>{this.handle_click("Messages")}}/>
+      
+    {  //<RaisedButton label="Explore" onTouchTap={() =>{this.handle_click("Explore")}}/>
+    }
+      <RaisedButton label="Admin" onTouchTap={() =>{this.handle_click("Admin")}}/>
       <Features/>
 
       </div>
@@ -144,7 +155,7 @@ class Home extends Component {
       {
         //Logged in
 
-        <Logged_in/>
+        <Logged_in page={this.state.page}/>
 
 
       }
@@ -170,10 +181,3 @@ class Home extends Component {
   }
 
   export default Home;
-
-  // Home
-  // Digimon
-  // Demesne
-  // Forum
-  // Explore
-  // Shop
