@@ -12,6 +12,7 @@ import User from './User';
 import Features from './Features';
 import Signup from './Signup';
 import SignInButton from './SignInButton';
+import Logged_in from './Logged_in';
 
 //firebase
 import firebase from '../firebase.js';
@@ -74,8 +75,15 @@ class Home extends Component {
       <div className="App-header">
       <img src="http://orig00.deviantart.net/1b37/f/2011/060/7/8/crest_of_courage_base_by_alijameel-d3aozba.png"  className="App-logo" alt="logo" />
       <h2>Digital Domain</h2>
+      <RaisedButton label="Home"/>
+      <RaisedButton label="Profile"/>
+      <RaisedButton label="Shop"/>
+      <RaisedButton label="Explore"/>
       <Features/>
+
       </div>
+{
+  // =============================================== Front page not logged in ===================================================
       <div style={{display: 'flex',
       'flexDirection': 'row',
       'justifyContent': 'center'}}>
@@ -96,46 +104,64 @@ class Home extends Component {
         'flexDirection': 'column',
         margin: '10%'}}>
 
+{
 
-        <div style={{display: 'flex',
-        'flexDirection': 'row',
-        'justifyContent': 'center'}}>
-        <img src="https://wikimon.net/images/2/28/Agumon_vpet_dv.gif"/>
-        <img src="https://wikimon.net/images/7/75/Gabumon_vpet_dv.gif"/>
-        <img src="https://wikimon.net/images/c/c7/Betamon_vpet_d3.gif"/>
+//{// Not Logged In}
+
+//           <div>
+//
+//
+//         <div style={{display: 'flex',
+//         'flexDirection': 'row',
+//         'justifyContent': 'center'}}>
+//         <img src="https://wikimon.net/images/2/28/Agumon_vpet_dv.gif"/>
+//         <img src="https://wikimon.net/images/7/75/Gabumon_vpet_dv.gif"/>
+//         <img src="https://wikimon.net/images/c/c7/Betamon_vpet_d3.gif"/>
+//         </div>
+//
+//         <div>A place to raise your own Digimon. </div>
+//         <div>Coming Soon! </div>
+//
+//
+//         <Signup/>
+//         <br/>
+//         {this.state.logged_in ?
+//           <div>
+//           <RaisedButton
+//           label= "Sign Out"
+//           onTouchTap={this.handleSignOut}/>
+//           </div>
+//           :
+//           <SignInButton
+//           user= {this.state.user}
+//           handleSignIn={this.handleSignIn}/>
+//         }
+//
+//
+//         </div>
+      }
+
+      {
+        //Logged in
+
+        <Logged_in/>
+
+
+      }
+
+
         </div>
-        <div>A place to raise your own Digimon. </div>
-        <div>Coming Soon! </div>
-
-        {this.state.user ? <div>Logged in!</div>: ""}
-        <div>
-
-        </div>
-
-        <br/>
-
-
-
-        <div>
-        <Signup/>
-        </div>
-        <br/>
-        {this.state.logged_in ?
-          <div>
-          <RaisedButton
-          label= "Sign Out"
-          onTouchTap={this.handleSignOut}/>
-          </div>
-          :
-
-          <SignInButton
-          user= {this.state.user}
-          handleSignIn={this.handleSignIn}/>
-        }
-        </div>
 
 
         </div>
+      }
+
+
+
+
+
+
+
         </div>
 
 
