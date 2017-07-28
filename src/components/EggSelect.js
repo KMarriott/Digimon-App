@@ -21,13 +21,13 @@ class EggSelect extends Component {
       padding: '5%'}}>
       <img
       src="https://sites.google.com/site/digimonunlimitedwiki/_/rsrc/1369591394956/eggs-and-evolution-charts/Nature%20Spirits.jpg"
-      />
+       onTouchTap={() =>{this.props.handle_egg_select()}}/>
       <img
       src="https://sites.google.com/site/digimonunlimitedwiki/_/rsrc/1369591406522/eggs-and-evolution-charts/Deep%20Savers.jpg"
-      />
+       onTouchTap={() =>{this.props.handle_egg_select()}}/>
       <img
       src="https://sites.google.com/site/digimonunlimitedwiki/_/rsrc/1369591510340/eggs-and-evolution-charts/Dark%20Area.jpg"
-      />
+       onTouchTap={() =>{this.props.handle_egg_select()}}/>
       </div>
       <div style={{ padding: '5%'}}>
         Please Select an Egg!</div>

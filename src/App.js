@@ -5,10 +5,8 @@ import Home from './components/Home.js'
 
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { BrowserRouter } from 'react-router-dom'
 
-
-
-import { Router, Route, Switch } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -17,10 +15,11 @@ injectTapEventPlugin();
 class App extends Component {
   render() {
     return (
-
+  <BrowserRouter>
       <MuiThemeProvider>
       <Home/>
       </MuiThemeProvider>
+  </BrowserRouter>
 
     );
   }

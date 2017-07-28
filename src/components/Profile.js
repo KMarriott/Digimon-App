@@ -15,7 +15,7 @@ class Profile extends Component {
 
         <Paper style={{'padding-bottom': '5%'}}>
         <div style={{padding: '5%'}}>
-        Shop Keeper Name
+        Username
         </div>
         <div style={{display: 'flex',
         'flexDirection': 'row',

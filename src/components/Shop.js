@@ -18,14 +18,13 @@ class Shop extends Component {
 
         <Paper style={{'padding-bottom': '5%'}}>
         <div style={{padding: '5%'}}>
-        Username
+        Shop Keeper 
         </div>
         <div style={{display: 'flex',
         'flexDirection': 'row',
         'justifyContent': 'center'}}>
-        <Paper circle={true} style={{'height': '10vh'}}>
-        Shop Image
-        </Paper>
+        <img src="https://wikimon.net/images/thumb/e/e6/Kurihara_hina1.jpg/171px-Kurihara_hina1.jpg"/>
+
         </div>
         <div style={{ padding: '5%'}}>
 

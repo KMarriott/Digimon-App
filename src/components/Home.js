@@ -17,13 +17,41 @@ import Logged_in from './Logged_in';
 //firebase
 import firebase from '../firebase.js';
 
+
+//Router
+import { BrowserRouter, Link } from 'react-router-dom'
+
+
+
+let database = firebase.database();
+
+
 class Home extends Component {
 
   state = {
-    user: null,
-    logged_in: true,
-    page: "Home"
+    page: "Home",
+      logged_in: false,
   };
+
+
+
+  componentWillMount = () => {
+    let _this = this
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        _this.setState({
+          logged_in: true,
+          user: user})
+
+        console.log(user.uid)
+      } else {
+        _this.setState({
+          logged_in: false,
+          user: null})
+      }
+    });
+  }
 
   handle_click = (page) => {
     this.setState(
@@ -43,13 +71,16 @@ class Home extends Component {
     )
   }
   handleSignIn = () => {
-    let this_ = this
+    let _this = this
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log("User is signed in.")
-        this_.setState({user: user});
-        console.log(this_.state.user)
-        this_.handle_log_in()
+
+        console.log(_this.state.user)
+        _this.setState(
+          {logged_in: true,
+          user: user}
+        )
 
       } else {
         console.log("No user is signed in.")
@@ -60,11 +91,13 @@ class Home extends Component {
   };
 
   handleSignOut = () => {
-    let this_ = this
+    let _this = this
     firebase.auth().signOut().then(function() {
       // Sign-out successful.
-      this_.setState({user: null});
-      this_.handle_log_out()
+      _this.setState(
+        {logged_in: false,
+        user: null}
+      )
       console.log("Sign out success")
 
 
@@ -82,14 +115,14 @@ class Home extends Component {
       <div className="App-header">
       <img src="http://orig00.deviantart.net/1b37/f/2011/060/7/8/crest_of_courage_base_by_alijameel-d3aozba.png"  className="App-logo" alt="logo" />
       <h2>Digital Domain</h2>
-      <RaisedButton label="Home" onTouchTap={() =>{this.handle_click("Home")}}/>
-      <RaisedButton label="Profile" onTouchTap={() =>{this.handle_click("Profile")}}/>
-      <RaisedButton label="Shop" onTouchTap={() =>{this.handle_click("Shop")}}/>
-      <RaisedButton label="Messages" onTouchTap={() =>{this.handle_click("Messages")}}/>
+      <Link to="/"><RaisedButton label="Home" onTouchTap={() =>{this.handle_click("Home")}}/></Link>
+      <Link to="/profile"><RaisedButton label="Profile" onTouchTap={() =>{this.handle_click("Profile")}}/></Link>
+      <Link to="/shop"><RaisedButton label="Shop" onTouchTap={() =>{this.handle_click("Shop")}}/></Link>
+      <Link to="/messages"><RaisedButton label="Messages" onTouchTap={() =>{this.handle_click("Messages")}}/></Link>
 
     {  //<RaisedButton label="Explore" onTouchTap={() =>{this.handle_click("Explore")}}/>
     }
-      <RaisedButton label="Admin" onTouchTap={() =>{this.handle_click("Admin")}}/>
+      <Link to="/admin"><RaisedButton label="Admin" onTouchTap={() =>{this.handle_click("Admin")}}/></Link>
       <Features/>
       {this.state.logged_in ?
         <div>
@@ -109,17 +142,6 @@ class Home extends Component {
       'flexDirection': 'row',
       'justifyContent': 'center'}}>
 
-      {this.state.user ?
-        <div style={{display: 'flex',
-        'flexDirection': 'column',
-        width: '20%',
-        margin: 'auto 5%'}}>
-
-        <User/>
-        <Digimon/>
-
-        </div>
-        : "" }
 
         <div style={{display: 'flex',
         'flexDirection': 'column',
@@ -148,7 +170,7 @@ class Home extends Component {
       }
 
 
-        {this.state.logged_in ? <Logged_in page={this.state.page}/> : ""}
+        {this.state.logged_in ? <Logged_in page={this.state.page} user={this.state.user}/> : ""}
 
 
 

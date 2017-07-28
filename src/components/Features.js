@@ -34,12 +34,15 @@ class Features extends Component {
 
     let feature_text = <div>Things to do:
     <br/>Figure out how to make an API on firebase
+    <br/>Figure out rails router
+    <br/>Figure out how to make react state permanent
     <br/>Make firs time log in/Egg Selection process neater
     <br/>Work out digimon logic
     <br/>Build admin back end
     <br/> Build messaging system (pubnub for a live chat?)
     <br/>Build Shop keeper (after deciding item logic)
     <br/> Turn this into a to-do list app
+    <br/>Add a hover over selection for feeding/training/playing
 <br/>
 <br/>
     <br/>Progression:
