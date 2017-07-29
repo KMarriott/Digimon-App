@@ -1,0 +1,36 @@
+.play {
+  animation: play 1s infinite;
+}
+
+.train {
+  animation: train .7s infinite;
+}
+
+.idle {
+  animation: idle 7s infinite;
+}
+
+
+@keyframes play
+{
+0% {transform: translatey(0);}
+25% {transform: translateY(-50%);}
+50% {transform: translateY(0);}
+75% {transform: translateY(-50%);}
+}
+
+@keyframes train
+{
+0% {transform: translatey(0);}
+25% {transform: translateX(-33%);}
+50% {transform: translateX(0);}
+75% {transform: translateX(-50%);}
+}
+
+@keyframes idle
+{
+0% {transform: translatey(0);}
+25% {transform: translateX(100%);}
+50% {transform: translateX(0);}
+75% {transform: translateX(-100%);}
+}

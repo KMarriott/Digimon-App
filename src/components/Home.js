@@ -29,8 +29,7 @@ let database = firebase.database();
 class Home extends Component {
 
   state = {
-    page: "Home",
-      logged_in: false,
+    page: "Home"
   };
 
 
@@ -52,6 +51,8 @@ class Home extends Component {
       }
     });
   }
+
+  
 
   handle_click = (page) => {
     this.setState(
@@ -108,6 +109,7 @@ class Home extends Component {
 
 
 
+
   render() {
     return (
 
@@ -124,17 +126,7 @@ class Home extends Component {
     }
       <Link to="/admin"><RaisedButton label="Admin" onTouchTap={() =>{this.handle_click("Admin")}}/></Link>
       <Features/>
-      {this.state.logged_in ?
-        <div>
-        <RaisedButton
-        label= "Sign Out"
-        onTouchTap={this.handleSignOut}/>
-        </div>
-        :
-        <SignInButton
-        user= {this.state.user}
-        handleSignIn={this.handleSignIn}/>
-      }
+
 
       </div>
 {
@@ -147,7 +139,7 @@ class Home extends Component {
         'flexDirection': 'column',
         margin: '10%'}}>
 
-        {!this.state.logged_in ? <div>
+        {this.state.logged_in==false ? <div>
 
 
         <div style={{display: 'flex',
@@ -172,17 +164,25 @@ class Home extends Component {
 
         {this.state.logged_in ? <Logged_in page={this.state.page} user={this.state.user}/> : ""}
 
-
-
-
         </div>
+
 
 
         </div>
       }
 
 
-
+      {this.state.logged_in ?
+        <div>
+        <RaisedButton
+        label= "Sign Out"
+        onTouchTap={this.handleSignOut}/>
+        </div>
+        :
+        <SignInButton
+        user= {this.state.user}
+        handleSignIn={this.handleSignIn}/>
+      }
 
 
 

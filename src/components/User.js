@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 
 
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 
 let style = {
@@ -27,7 +27,7 @@ class User extends Component {
       <Paper circle={true} style={circle}>  </Paper>
       <div>Username</div>
       <div>Bits</div>
-      <RaisedButton label="Inventory" />
+      <FlatButton label="Inventory" />
       </Paper>
 
     );

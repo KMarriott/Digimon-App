@@ -32,7 +32,9 @@ class Features extends Component {
   render() {
 
 
-    let feature_text = <div>Things to do:
+    let feature_text = <div>
+    <div>Build order : Home -> Admin -> Profiles -> Messages -> Shop</div>
+    Things to do:
     <br/>Figure out how to make an API on firebase
     <br/>Figure out rails router
     <br/>Figure out how to make react state permanent
