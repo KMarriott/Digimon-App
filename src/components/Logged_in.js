@@ -66,8 +66,20 @@ handle_egg_select = () => {
     const Home = () => <div>
 
     {this.state.first_egg_avaliable ? <EggSelect handle_egg_select={this.handle_egg_select}/> :
-    <DigimonPage/>}
+    <div>
+    <div style={{display: "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-evenly"}}
+    ><DigimonPage/>
+    <DigimonPage/>
+
     </div>
+
+        <div>*Warning, the Agumon will lose their data if you leave the page.</div>
+  </div>
+}
+    </div>
+
 
     return (
 

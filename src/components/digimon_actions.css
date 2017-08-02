@@ -1,17 +1,24 @@
 .play {
-  animation: play 1s infinite;
+  animation: flip 1s infinite;
 }
 
 .train {
-  animation: train .7s infinite;
+  animation: train 0.7s infinite;
 }
 
 .idle {
-  animation: idle 7s infinite;
+  animation: idle 10s infinite;
 }
 
+.feed {
+  animation: jump 1s 1;
+}
 
-@keyframes play
+.bathe{
+    animation: shake 0.3s ease 3;
+}
+
+@keyframes jump
 {
 0% {transform: translatey(0);}
 25% {transform: translateY(-50%);}
@@ -21,16 +28,54 @@
 
 @keyframes train
 {
+0% {transform: translateX(50%);}
+25% {transform: translateX(17%);}
+50% {transform: translateX(50%) ;}
+75% {transform: translateX(-17%);}
+100% {transform: translateX(25%);}
+}
+
+@keyframes shake
+{
 0% {transform: translatey(0);}
 25% {transform: translateX(-33%);}
 50% {transform: translateX(0);}
-75% {transform: translateX(-50%);}
+75% {transform: translateX(33%);}
 }
 
 @keyframes idle
 {
+0% {transform: translatey(0) scaleX(1); }
+25% {transform: translateX(-100%) scaleX(1);}
+26% {transform: translateX(-100%) scaleX(-1);}
+50% {transform: translateX(0) scaleX(-1)}
+75% {transform: translateX(100%) scaleX(-1);}
+76% {transform: translateX(100%) scaleX(1);}
+}
+
+
+@keyframes turn
+{
+  0% {transform: translateX(0);}
+  50% {transform: scaleX(-1);}
+}
+
+
+@keyframes jump
+{
 0% {transform: translatey(0);}
-25% {transform: translateX(100%);}
-50% {transform: translateX(0);}
-75% {transform: translateX(-100%);}
+25% {transform: translateY(-50%);}
+50% {transform: translateY(0);}
+75% {transform: translateY(-50%);}
+
+}
+
+@keyframes flip
+{
+0% {transform: rotate(0deg) ;left:0px;}
+25% {transform: rotate(20deg) ;left:0px;}
+50% {transform: rotate(0deg) translateY(-50%);left:500px; }
+55% {transform: rotate(0deg) translateY(-50%);left:500px;}
+70% {transform: rotate(0deg) ;left:500px;}
+100% {transform: rotate(-360deg);left:0px;}
 }
