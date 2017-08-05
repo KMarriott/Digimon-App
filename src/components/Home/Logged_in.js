@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 
-import Digimon from './Digimon';
-import DigimonPage from './DigimonPage';
+import DigimonPage from '../Digimon/DigimonPage';
 import EggSelect from './EggSelect'
-import Profile from './Profile'
-import Shop from './Shop'
-import MessagePage from './MessagePage'
-import Admin from './Admin'
+import Profile from '../Profile'
+import Shop from '../Shop'
+import MessagePage from '../MessagePage'
+import Admin from '../Admin'
 
 
 import { Route } from 'react-router-dom'

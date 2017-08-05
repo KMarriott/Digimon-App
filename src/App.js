@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import Home from './components/Home.js'
+import Home from './components/Home/Home.js'
 
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

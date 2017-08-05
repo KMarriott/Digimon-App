@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
-import '../App.css';
+import '../../App.css';
 
 //material-ui
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 
 //components
-import Digimon from './Digimon';
 import User from './User';
-import Features from './Features';
+import Features from '../Features';
 import Signup from './Signup';
 import SignInButton from './SignInButton';
 import Logged_in from './Logged_in';
@@ -52,7 +50,7 @@ class Home extends Component {
     });
   }
 
-  
+
 
   handle_click = (page) => {
     this.setState(
@@ -129,7 +127,7 @@ class Home extends Component {
 
 
       </div>
-{
+
       <div style={{display: 'flex',
       'flexDirection': 'row',
       'justifyContent': 'center'}}>
@@ -151,38 +149,39 @@ class Home extends Component {
         </div>
 
         <div>A place to raise your own Digimon. </div>
-        <div>Coming Soon! </div>
+
+<div>---</div>
 
 
         <Signup/>
+        {this.state.logged_in ?
+          <div>
+          <RaisedButton
+          label= "Sign Out"
+          onTouchTap={this.handleSignOut}/>
+          </div>
+          :
+          <SignInButton
+          user= {this.state.user}
+          handleSignIn={this.handleSignIn}/>
+        }
 
 
 
         </div> : ""
       }
 
+<Logged_in page={this.state.page} user={this.state.user}/>
 
-        {this.state.logged_in ? <Logged_in page={this.state.page} user={this.state.user}/> : ""}
+        </div>
+
+
 
         </div>
 
 
 
-        </div>
-      }
 
-
-      {this.state.logged_in ?
-        <div>
-        <RaisedButton
-        label= "Sign Out"
-        onTouchTap={this.handleSignOut}/>
-        </div>
-        :
-        <SignInButton
-        user= {this.state.user}
-        handleSignIn={this.handleSignIn}/>
-      }
 
 
 

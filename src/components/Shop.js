@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 
-import Digimon from './Digimon';
-import EggSelect from './EggSelect'
 
 class Shop extends Component {
 
@@ -18,7 +16,7 @@ class Shop extends Component {
 
         <Paper style={{'padding-bottom': '5%'}}>
         <div style={{padding: '5%'}}>
-        Shop Keeper 
+        Shop Keeper
         </div>
         <div style={{display: 'flex',
         'flexDirection': 'row',

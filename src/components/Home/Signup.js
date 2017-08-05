@@ -65,6 +65,7 @@ class Signup extends Component {
     <FlatButton
       label="Sign Up"
       primary={true}
+        keyboardFocused={true}
       onTouchTap={this.handleSignUp}
     />,
   ];
@@ -74,6 +75,7 @@ class Signup extends Component {
 <div>
 
       <RaisedButton label="Sign Up" onTouchTap={this.handleOpen}/>
+
       <Dialog
   title="Sign Up"
   actions={actions}

@@ -60,6 +60,7 @@ class SignInButton extends Component {
 
     <FlatButton
       label="Sign In"
+      keyboardFocused={true}
       primary={true}
       onTouchTap={this.handleSignIn}
     />,

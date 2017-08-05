@@ -5,8 +5,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 
-import Digimon from './Digimon';
-import EggSelect from './EggSelect'
 import StatDrawer from './StatDrawer'
 
 import './digimon_actions.css'
@@ -20,7 +18,7 @@ class DigimonPage extends Component {
 
 
       let greymon_check = (digimon) => {
-        if(digimon.age>5000)
+        if(digimon.age>50)
         return true
         else return false
       }
@@ -68,6 +66,7 @@ class DigimonPage extends Component {
           stage: "Child",
           image: "https://wikimon.net/images/2/28/Agumon_vpet_dv.gif",
           name: "Agumon",
+          default_name: true,
           age: 0,
           level: 1,
           happiness: 0,
@@ -188,7 +187,7 @@ feed = () => {
       _this.setState({
         buttons: buttons,
         digimon_state: "idle",
-        message: "Your digimon just ate began to roam about.",
+        message: "Your digimon just ate and began to roam about.",
       })
     }, 3000);
   }
@@ -348,7 +347,9 @@ if(check){
   digimon.species = evolution.species
   digimon.stage = evolution.stage
   digimon.evolutions = evolution.evolutions
-
+  if(digimon.default_name===true){
+    digimon.name=evolution.species
+  }
   this.setState({
     digimon: digimon
   })
